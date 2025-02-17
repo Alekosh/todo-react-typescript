@@ -1,0 +1,21 @@
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.input-field{
+  display: flex;
+  gap: 16px;
+}
+ul{
+  list-style: none;
+  padding: 0;
+}
+li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+input:checked + span {
+  text-decoration: line-through red 3px;
+}
