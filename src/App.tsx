@@ -1,15 +1,12 @@
 import { useState } from 'react'
 import './App.css'
+import TodoList from './components/TodoList';
+import InputField from './components/InputField';
+import { ITodo } from './components/Interface'
 
 function App() {
   const [text, setText] = useState('');
-  const [todos, setTodos] = useState<Todo[]>([]);
-
-  interface Todo {
-    id: string;
-    text: string;
-    completed: boolean;
-  }
+  const [todos, setTodos] = useState<ITodo[]>([]);
 
   const addTodo = (): void => {
     if (text.trim().length) {
@@ -43,25 +40,17 @@ function App() {
 
   return (
     <>
-      <div className='input-field'>
-        <input
-          type="text"
-          value={text}
-          onChange={event => setText(event.target.value)}
-          placeholder='Введите что нибудь'
-        />
-        <button onClick={addTodo}>Add todo</button>
-      </div>
+      <InputField
+        text={text}
+        setText={setText}
+        setTodo={addTodo}
+      />
 
-      <ul>
-        {
-          todos.map(todo => <li key={todo.id}>
-            <input type='checkbox' checked={todo.completed} onChange={() => toggleCheckbox(todo.id)} />
-            <span>{todo.text}</span>
-            <span onClick={() => removeTodo(todo.id)}>&times;</span>
-          </li>)
-        }
-      </ul>
+      <TodoList
+        todos={todos}
+        toggleCheckbox={toggleCheckbox}
+        removeTodo={removeTodo}
+      />
     </>
   )
 }
