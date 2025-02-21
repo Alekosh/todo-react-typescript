@@ -1,7 +1,7 @@
 {
   "name": "react-tsx",
   "private": true,
-  "homepage": "https://Alekosh.github.io/todo-react-typescript/",
+  "homepage": "https://Alekosh.github.io/todo-react-typescript",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
